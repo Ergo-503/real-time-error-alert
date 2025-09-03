@@ -204,61 +204,59 @@ Log Monitor Demo System
         
         level_color = level_colors.get(error_info['level'], '#6c757d')  # Default gray
         
-        return f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>Log Monitor Alert</title>
-        </head>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-                <div style="background-color: {level_color}; color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-                    <h2 style="margin: 0;">🚨 Log Monitor Alert</h2>
-                    <p style="margin: 5px 0 0 0;">Error Level: <strong>{error_info['level']}</strong></p>
-                </div>
-                
-                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-                    <h3 style="margin-top: 0; color: #495057;">Error Details</h3>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <tr>
-                            <td style="padding: 8px; font-weight: bold; width: 150px;">🕐 Timestamp:</td>
-                            <td style="padding: 8px;">{error_info['timestamp']}</td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <td style="padding: 8px; font-weight: bold;">🚨 Level:</td>
-                            <td style="padding: 8px;"><span style="color: {level_color}; font-weight: bold;">{error_info['level']}</span></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px; font-weight: bold;">📝 Message:</td>
-                            <td style="padding: 8px;">{error_info['message']}</td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <td style="padding: 8px; font-weight: bold;">🔍 Keyword:</td>
-                            <td style="padding: 8px;">{error_info['matched_keyword']}</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div style="background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-                    <h4 style="margin-top: 0;">Full Log Line:</h4>
-                    <code style="background-color: #f8f9fa; padding: 10px; display: block; border-radius: 3px; font-size: 12px; overflow-x: auto;">
-                        {error_info['line']}
-                    </code>
-                </div>
-                
-                <div style="border-top: 1px solid #dee2e6; padding-top: 15px; font-size: 12px; color: #6c757d;">
-                    <p><strong>Detection Details:</strong></p>
-                    <ul style="margin: 0; padding-left: 20px;">
-                        <li>Detected at: {error_info['detected_at']}</li>
-                        <li>System: Log Monitor Demo</li>
-                    </ul>
-                    <p style="margin-top: 15px;"><em>This is an automated alert from your Log Monitor system. Please investigate the issue promptly.</em></p>
-                </div>
-            </div>
-        </body>
-        </html>
-        """
+        return f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Log Monitor Alert</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background-color: {level_color}; color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <h2 style="margin: 0;">🚨 Log Monitor Alert</h2>
+            <p style="margin: 5px 0 0 0;">Error Level: <strong>{error_info['level']}</strong></p>
+        </div>
+        
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0; color: #495057;">Error Details</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px; font-weight: bold; width: 150px;">🕐 Timestamp:</td>
+                    <td style="padding: 8px;">{error_info['timestamp']}</td>
+                </tr>
+                <tr style="background-color: white;">
+                    <td style="padding: 8px; font-weight: bold;">🚨 Level:</td>
+                    <td style="padding: 8px;"><span style="color: {level_color}; font-weight: bold;">{error_info['level']}</span></td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">📝 Message:</td>
+                    <td style="padding: 8px;">{error_info['message']}</td>
+                </tr>
+                <tr style="background-color: white;">
+                    <td style="padding: 8px; font-weight: bold;">🔍 Keyword:</td>
+                    <td style="padding: 8px;">{error_info['matched_keyword']}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <h4 style="margin-top: 0;">Full Log Line:</h4>
+            <code style="background-color: #f8f9fa; padding: 10px; display: block; border-radius: 3px; font-size: 12px; overflow-x: auto;">
+                {error_info['line']}
+            </code>
+        </div>
+        
+        <div style="border-top: 1px solid #dee2e6; padding-top: 15px; font-size: 12px; color: #6c757d;">
+            <p><strong>Detection Details:</strong></p>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>Detected at: {error_info['detected_at']}</li>
+                <li>System: Log Monitor Demo</li>
+            </ul>
+            <p style="margin-top: 15px;"><em>This is an automated alert from your Log Monitor system. Please investigate the issue promptly.</em></p>
+        </div>
+    </div>
+</body>
+</html>"""
     
     def _send_via_smtp(self, message):
         """
