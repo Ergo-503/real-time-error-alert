@@ -1,0 +1,29 @@
+# Real-time Log Monitor Demo - Python Dependencies
+# ================================================
+# This file lists all required Python packages for the log monitoring system.
+# Install with: pip install -r requirements.txt
+
+# Core dependencies for file system monitoring
+watchdog==3.0.0
+
+# HTTP requests for Slack webhook notifications  
+requests==2.31.0
+
+# Built-in libraries (no installation required):
+# - smtplib: Email sending via SMTP
+# - email: Email message construction
+# - configparser: INI file configuration management
+# - threading: Background processing
+# - pathlib: Cross-platform file path handling
+# - time: Time and datetime operations
+# - json: JSON data handling
+# - re: Regular expression pattern matching
+# - os: Operating system interface
+# - sys: System-specific parameters and functions
+# - signal: Signal handling for graceful shutdown
+
+# Optional development dependencies (uncomment if needed):
+# pytest==7.4.0        # For unit testing
+# black==23.7.0         # Code formatting
+# flake8==6.0.0         # Code linting
+# mypy==1.5.0           # Type checking
